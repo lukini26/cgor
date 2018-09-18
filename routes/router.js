@@ -78,8 +78,9 @@ router.get('/list', (req, res) =>{
             var err = new Error('Not authorized! Go back!');
             err.status = 400; 
             return next(err);
-          } else { User.find()
+          } else { User.find().sort({team: 1})
             .then((users) => {
+             
               res.render('list', { title: 'users', users : users,team: user.team , uemail: user.email , uname: user.username , uid: user.pokeid});
             })
               
@@ -119,7 +120,7 @@ router.get('/profile', function (req, res, next) {
           var err = new Error('Not authorized! Go back!');
           err.status = 400; 
           return next(err);
-        } else {
+        } else {req.session.user = user ; 
           return res.render('profile' , { team: user.team , uemail: user.email , uname: user.username , uid: user.pokeid} )
           
           //('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>'
