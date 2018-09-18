@@ -1,0 +1,78 @@
+doctype html
+head
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+  link(type='text/css', rel='stylesheet', href='css/materialize.min.css',  media='screen,projection')
+  link(type='text/css', rel='stylesheet', href='css/prof.min.css',  media='screen,projection')
+  meta(name='viewport' ,content='width=device-width, initial-scale=1.0')
+
+- var color ; 
+- var poke  ;
+- var backg ; 
+case team
+  when "Valor"
+   - color = "red"
+   - poke = 'images/mol.jpg'
+   - backg = 'images/red.jpg'
+  when "Instinto"
+   - color = "yellow"
+   - poke = 'images/zap.jgp'
+   - backg = 'images/yellow.png'
+  when "Sabiduria"
+   - color = "blue"
+   - poke= 'images/art.jpg'
+   - backg = 'images/blue.png'   
+
+  
+body
+  
+  nav(class = color , role = 'navigation')
+    img.img-responsive#logo-container.brand-logo.center(src="images/logo.png", style={height:'20px', weight:'30px',margin:'15px'})
+    ul.right.hide-on-med-and-down
+     li
+       a.sedevan-trigger(id="SideNave")
+        
+    a.sidenav-trigger(id = "SideNav")
+      i.material-icons menu
+
+  ul.sidenav.table-of-content.sidenav-fixed(id="slide-out")
+    li
+    .user-view
+      .background(class = color)
+        
+      a(href='/profile')
+        img.circle(src=poke)
+      a(href='/profile')
+        span.white-text.name=uname
+      a(href='#email')
+        span.white-text.email=team
+    li
+      a(href='/list')
+        i.material-icons cloud
+        | Lista de usuarios
+    li
+      a(href='/logout') LogOut
+    li
+      .divider
+    li
+      a.subheader=uemail
+    li
+      a.waves-effect(href='https://wa.me/543415324611') Sugerencias por whatsapp!
+  a.sidenav-trigger(href="#", data-target="slide-out")
+    i(class="material-icons")
+block ttt
+  row.center
+    h3 hola como va?!
+    h10 esto es una version de prueba si le das a lista de usuarios 
+    h10 vas a poder ver todos los usuarios registrados te agradeceria que me mandes sugerencias y me digas que te parece hasta ahora ,saludos!
+  row.right
+    a(class="twitter-timeline", data-lang="es",style={width:'100% !important'},
+    data-width="auto", data-height="350",
+    data-link-color="#FAB81E", href="https://twitter.com/nidospokemongo?ref_src=twsrc%5Etfw") 
+ 
+
+
+
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+script(type='text/javascript' ,src='js/materialize.min.js')
+script(type='text/javascript' , src='js/nav.js')
+script.async(type='text/javascript', src='https://platform.twitter.com/widgets.js')
