@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Pokedex = require('pokedex') ; 
+
+router.get('/pokedex', function(req,res,next){
+  pokedex = new Pokedex() ; 
+    res.render('pokdex', {pokedex: pokedex}) ; 
+
+})
+  
 
 
 

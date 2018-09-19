@@ -9,6 +9,10 @@ var MongoStore = require('connect-mongo')(session);
 require('./models/user');
 
 
+
+
+
+
 //connect to MongoDB
 mongoose.connect('mongodb://lukini:masciotra26@ds151612.mlab.com:51612/caminantesgo');
 var db = mongoose.connection;
@@ -29,13 +33,17 @@ app.use(session({
   })
 }));
 
+
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+
 // serve static files from template
 app.use(express.static(__dirname + '/templateLogReg'));
+
+
 
 
 // include routes
