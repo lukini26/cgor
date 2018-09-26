@@ -3,16 +3,24 @@ head
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
   link(type='text/css', rel='stylesheet', href='css/materialize.min.css',  media='screen,projection')
   link(type='text/css', rel='stylesheet', href='css/prof.min.css',  media='screen,projection')
+  link(type='text/css', rel='stylesheet', href='css/custom.css',  media='screen,projection')
   meta(name='viewport' ,content='width=device-width, initial-scale=1.0')
 body
+
 - var varia = 1 ;   
 - var counter = 1 ; 
-- var bichito  ; 
--console.log(pokedex) ; console.log(JSON.stringify(pokedex)) ;  
+- var bichito  ;
+- var coleccion = [[1,1,1,1],[0,0,0,0],[1,0,1,0],[1,1,1,1],[0,0,1,1,],[1,1,0,0] ]
+ 
+//-console.log(pokedex) ; console.log(JSON.stringify(pokedex)) ;
+
+  
+.container.col.xl3
+  button.button( onclick='something()') Save  
 
 div.container.col.xl3
   ul.collection
-    while counter < 10
+    while counter < 7
       -bichito=pokedex.pokemon(counter)
       li.collection-item.avatar
         if (typeof bichito.sprites === 'undefined')
@@ -28,11 +36,14 @@ div.container.col.xl3
         span.title= bichito.id
         p= bichito.name
         div.secondary-content
-          a(href="#!")
-            i.material-icons(style={color: 'black'}) check
+          a(id="trader"  href="#!")
+            i.material-icons( style={color: 'black'}) check
             span    
-          a(href="#!")
-            if(varia = 1)
+          a(href="#!" )
+            - var inder = counter-2 ; 
+            - var trade = coleccion[inder][1] ;
+            - console.log();  
+            if( trade == 1)
               i.material-icons(style={color: 'green'}) shopping_cart
             else
               i.material-icons(style={color: 'red'}) shopping_cart
@@ -60,4 +71,12 @@ script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 script(type='text/javascript' ,src='js/materialize.min.js')
 script(type='text/javascript' , src='js/nav.js')
 script.async(type='text/javascript', src='https://platform.twitter.com/widgets.js')
-script(type='text/javascript' , src='js/sortable.js')    
+script(type='text/javascript' , src='js/sortable.js')
+script.
+  var something = function() {
+    let coun
+    while coun <  
+  }
+script(type='text/javascript',src='js/pokearray.js')
+
+    
