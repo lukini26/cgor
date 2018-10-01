@@ -1,11 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-var Pokedex = require('pokedex') ; 
+var Pokedex = require('pokedex') ;
+var Poke = require('../models/pokes'); 
 
 router.get('/pokedex', function(req,res,next){
   pokedex = new Pokedex() ; 
-    res.render('pokdex', {pokedex: pokedex}) ; 
+   Poke.findOne({usernamepo: "test"},function (err, poke) {
+    if (err) {
+        return err
+    } 
+                   latenola = poke.p ;
+                    tradeable = poke.t ; 
+                    shiny = poke.s ; 
+                    tshi = poke.ts;
+                   
+            res.render('pokdex', {pokedex: pokedex , latenola: latenola}) ; 
+          });
+    
+    
 
 })
   
@@ -42,8 +55,20 @@ router.post('/', function (req, res, next) {
       team: req.body.team , 
       nomape: req.body.nomape
     }
+    var userPokes = {
+      usernamepo: req.body.username , 
+      p: new Array(1100).fill(0) , 
+      t: new Array(1100).fill(0) ,   
+      s: new Array(1100).fill(0) ,   
+      ts: new Array(1100).fill(0)       
+    }
 
     User.create(userData, function (error, user) {
+      Pokes.create(userPokes,function(error,pokes){
+        if(error){
+          return next(error) ;
+        }else {req.session.pokesSes = pokes}
+      });
       if (error) {
         return next(error);
       } else {

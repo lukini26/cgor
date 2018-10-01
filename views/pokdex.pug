@@ -10,7 +10,9 @@ body
 - var varia = 1 ;   
 - var counter = 1 ; 
 - var bichito  ;
-- var coleccion = [[1,1,1,1],[0,0,0,0],[1,0,1,0],[1,1,1,1],[0,0,1,1,],[1,1,0,0] ]
+- var coleccion = latenola ;
+
+
  
 //-console.log(pokedex) ; console.log(JSON.stringify(pokedex)) ;
 
@@ -33,25 +35,34 @@ div.container.col.xl3
         
           
         -counter = counter + 1
+        - var inder = counter-2 ; 
+        - var trade = coleccion[inder];
         span.title= bichito.id
         p= bichito.name
         div.secondary-content
-          a(id="trader"  href="#!")
-            i.material-icons( style={color: 'black'}) check
-            span    
-          a(href="#!" )
-            - var inder = counter-2 ; 
-            - var trade = coleccion[inder][1] ;
-            - console.log();  
-            if( trade == 1)
+          a(id="trader"  href="#!") 
+            if( trade == 0)
+              i.material-icons(style={color: 'green'}) check
+            else
+              i.material-icons(style={color: 'red'}) check
+          
+            
+          span    
+          a(href="#!" )      
+            if( trade == 0)
               i.material-icons(style={color: 'green'}) shopping_cart
             else
               i.material-icons(style={color: 'red'}) shopping_cart
           a(href="#!")
-            if(vari = 1)
-              i.material-icons(style={color: 'black'}) highlight
+            if(trade == 0)
+              i.material-icons(style={color: 'green'}) highlight
+            else
+              i.material-icons(style={color: 'orange'}) highlight
           a(href="#!")
-            i.material-icons(style={color: 'black'}) add_shopping_cart
+            if( trade == false)
+              i.material-icons(style={color: 'green'}) add_shopping_cart
+            else
+              i.material-icons(style={color: 'red'}) add_shopping_cart
 
 
 
@@ -73,9 +84,20 @@ script(type='text/javascript' , src='js/nav.js')
 script.async(type='text/javascript', src='https://platform.twitter.com/widgets.js')
 script(type='text/javascript' , src='js/sortable.js')
 script.
-  var something = function() {
-    let coun
-    while coun <  
+ - var something = function(cole) {
+  var filete
+  let coun = 0
+  while coun < 7{
+    for (i = 0; i < 5; i++) {
+        
+        if{
+            cole[coun][i] =       }
+          }
+      }
+      
+
+     
+      
   }
 script(type='text/javascript',src='js/pokearray.js')
 
